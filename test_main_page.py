@@ -25,3 +25,6 @@ def test_logo(driver):
     driver.get('https://www.saucedemo.com/')
     sleep(5)
     
+def test_hello_world(driver):
+    driver.get('https://www.saucedemo.com/')
+    assert 1 == 1 
