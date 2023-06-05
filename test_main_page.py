@@ -16,15 +16,17 @@ def driver(get_chrome_options):
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     return driver
 
-def test_url(driver):
-    driver.get('https://www.saucedemo.com/')
-    sleep(5)
-    driver.close()
 
-def test_logo(driver):
-    driver.get('https://www.saucedemo.com/')
+def test_succefull_autotization(driver):
+
+    driver.get('https://www.saucedemo.com/')   
+    username = driver.find_element(By.XPATH,'//input[@data-test="username"]') 
+    username.send_keys('standard_user')
+    password = driver.find_element(By.XPATH,'//input[@data-test="password"]') 
+    password.send_keys('secret_sauce')
+    login = driver.find_element(By.XPATH,'//input[@id="login-button"]')
+    login.click()
     sleep(5)
-    
-def test_hello_world(driver):
-    driver.get('https://www.saucedemo.com/')
-    assert 1 == 1 
+    products_title = driver.find_element(By.XPATH,'//span[@class="title"]') 
+    assert products_title.text == 'Products'#helolo
+
