@@ -18,7 +18,6 @@ def driver(get_chrome_options):
 
 
 def test_succefull_autotization(driver):
-
     driver.get('https://www.saucedemo.com/')   
     username = driver.find_element(By.XPATH,'//input[@data-test="username"]') 
     username.send_keys('standard_user')
@@ -30,3 +29,5 @@ def test_succefull_autotization(driver):
     products_title = driver.find_element(By.XPATH,'//span[@class="title"]') 
     assert products_title.text == 'Products'#helolo
 
+def test_hello():
+    assert 1 == 1 
